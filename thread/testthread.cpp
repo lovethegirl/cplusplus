@@ -1,8 +1,5 @@
 #include"include/queue.h"
-#include<thread>
-#include<iostream>
-#include<chrono>
-using namespace std;
+#include "include/xml.h"
 void fun1(threadsafe_queue<int> *q)
 {
 	     this_thread::sleep_for(chrono::seconds(2));
@@ -22,10 +19,15 @@ void fun2(threadsafe_queue<int>* q)
 }
 int main()
 {
-     threadsafe_queue<int> q;
-     thread th(fun1,&q);
-     thread th2(fun2,&q);
-     th.join();
-     th2.join();
+     // threadsafe_queue<int> q;
+     // thread th(fun1,&q);
+     // thread th2(fun2,&q);
+     // th.join();
+     // th2.join();
+    WorkXml_2 work;
+    thread th1(&WorkXml_2::mainTask,&work);
+    thread th2(&WorkXml_2::loadData,&work);
+    th1.join();
+    th2.join();
      return  0;
 }

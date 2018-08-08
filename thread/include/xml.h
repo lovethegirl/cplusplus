@@ -1,3 +1,12 @@
+#include<iostream>
+#include<thread>
+#include<chrono>
+#include <mutex>
+#include <memory>
+#include<cstring>
+#include<condition_variable>
+#include<unistd.h>
+using namespace std;
 class WorkXml_2
 {
 private:
@@ -13,6 +22,7 @@ public:
 	void loadData()
 	{
 		  cout<<"  start load data"<<endl;
+		  // std::this_thread::sleep_for(std::chrono::milliseconds(100));
 		  unique_lock<mutex>lk(m_mutex);
 		  for(int i=0;i<5;++i)
 		  {
@@ -31,9 +41,9 @@ public:
 	}
 	void mainTask()
 	{
-		 cout<<"do the main handtask"<<endl;
+		 cout<<"do the main handtask\n"<<endl;
 		 unique_lock<mutex>lk(m_mutex);
-		signal.wait(lk, bind(&WorkXml_2::clstrue,this));
+		 signal.wait(lk, bind(&WorkXml_2::clstrue,this));
 		 cout<<buf<<endl;
 		 cout<<"processing data"<<endl;
 	}
