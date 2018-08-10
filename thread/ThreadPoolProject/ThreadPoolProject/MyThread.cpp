@@ -16,7 +16,6 @@ void MyThread::setisdetach(bool detach)
 void MyThread::Assign(Task *t)
 {
 	task_ =t;
-
 }
 void MyThread::Run()
 {
