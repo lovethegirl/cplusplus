@@ -1,0 +1,8 @@
+#!/bin/bash
+
+path="JPEG"
+mkdir -p ${path}
+for ((i=0;i<=10;++i))
+do
+    touch ${path}/${i}.jpg
+done
