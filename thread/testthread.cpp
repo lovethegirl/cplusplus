@@ -1,5 +1,6 @@
 #include"include/queue.h"
 #include "include/xml.h"
+#include<iostream>
 void fun1(threadsafe_queue<int> *q)
 {
        cout<<"fun1"<<endl;
