@@ -5,4 +5,4 @@
 wget -qO- https://raw.github.com/ma6174/vim/master/setup.sh | sh -x
 opengl:https://blog.csdn.net/u013654125/article/details/73613644
 learn more
-
+lll
